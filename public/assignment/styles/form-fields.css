@@ -1,0 +1,13 @@
+form {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.icons {
+    margin-top: 25px;
+}
+
+.icons, i {
+    font-size: 30px;
+}
