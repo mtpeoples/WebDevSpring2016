@@ -1,3 +1,10 @@
-/**
- * Created by matthew on 2/25/16.
- */
+(function(){
+  angular
+      .module("FormBuilderApp")
+      .controller("SidebarController", SidebarController);
+
+  function SidebarController($scope) {
+
+    $scope.active = $scope.location.$$url == "/home";
+  }
+})();
