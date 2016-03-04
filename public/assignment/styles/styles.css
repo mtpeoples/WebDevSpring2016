@@ -103,3 +103,28 @@ body {
     display: inline-block;
     border-radius: 50%;
 }
+
+/*Form field styles*/
+
+form {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.icons {
+    margin-top: 25px;
+}
+
+.icons, i {
+    font-size: 30px;
+}
+
+.main .form-group a {
+    width: 100%;
+}
+
+.main .form-group label {
+    text-align: left;
+}
+

@@ -1,8 +1,8 @@
-<div class="sidebar" ng-controller="SidebarController">
+<div class="col-sm-3 col-md-2 sidebar" ng-controller="SidebarController">
   <ul class="nav nav-sidebar">
-    <li ng-class="{active: active}" ><a href="#/home">Home</a></li>
-    <li ng-if="user"><a href="#/profile">Profile</a></li>
-    <li ng-if="user"><a href="#/forms">Forms</a></li>
-    <li ng-if="user && user.admin"><a href="#/admin">Admin</a></li>
+    <li ng-class="{active: state == 'home'}"><a href="#/home">Home</a></li>
+    <li ng-if="user" ng-class="{active: state == 'profile'}"><a href="#/profile">Profile</a></li>
+    <li ng-if="user" ng-class="{active: state == 'forms'}"><a href="#/forms">Forms</a></li>
+    <li ng-if="user && user.admin" ng-class="{active: state == 'admin'}"><a href="#/admin">Admin</a></li>
   </ul>
 </div>

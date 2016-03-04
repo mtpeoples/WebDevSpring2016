@@ -16,7 +16,7 @@
         <li ng-if="!user"><a href="#/login">Login</a></li>
         <li ng-if="user"><a href="#/profile">{{user.username}}</a></li>
         <li ng-if="user && user.admin"><a href="#/admin">Admin</a></li>
-        <li ng-if="user"><a href="#">Logout</a></li>
+        <li ng-if="user" ng-click="logout()"><a>Logout</a></li>
     </div>
   </div>
 </nav>

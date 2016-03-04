@@ -3,7 +3,8 @@
       .module("FormBuilderApp")
       .controller("AdminController", AdminController);
 
-  function AdminController($scope) {
+  function AdminController($scope, $rootScope) {
 
+    $rootScope.state = "admin";
   }
 })();

@@ -3,7 +3,9 @@
       .module("FormBuilderApp")
       .controller("HeaderController", HeaderController);
 
-  function HeaderController($scope) {
-
+  function HeaderController($scope, $rootScope) {
+    $scope.logout = function() {
+      $rootScope.user = null;
+    }
   }
 })();
