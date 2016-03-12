@@ -103,7 +103,8 @@
       createEvent: createEvent,
       updateEvent: updateEvent,
       getEvents: getEvents,
-      getEventsByUser: getEventsByUser
+      getEventsByUser: getEventsByUser,
+      deleteEvent: deleteEvent
       //getEventsByTags: getEventsByTags
     };
 
@@ -138,6 +139,16 @@
       }
 
       return callback(matchingEvents);
+    }
+
+    function deleteEvent(id, callback) {
+      console.log(id);
+      for(var i=0; i < events.length; i++) {
+        if(events[i]._id == id) {
+          events.splice(i, 1);
+        }
+      }
+      return callback();
     }
 
     //function getEventsByTags(tags, callback) {

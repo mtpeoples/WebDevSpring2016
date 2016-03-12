@@ -1,4 +1,4 @@
 (function() {
   angular
-      .module("EventTrackerApp", ["ngRoute"]);
+      .module("EventTrackerApp", ["ngRoute", "ui.bootstrap"]);
 })();

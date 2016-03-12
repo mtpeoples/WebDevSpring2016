@@ -21,6 +21,10 @@
           templateUrl: "views/users/profile.view.html",
           controller: "ProfileController"
         })
+        .when("/manage", {
+          templateUrl: "views/events/manage.view.html",
+          controller: "ManageController"
+        })
         .otherwise({
           redirectTo: "/home"
         });
