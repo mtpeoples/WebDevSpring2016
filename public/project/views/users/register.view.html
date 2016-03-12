@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="col-md-4 col-md-offset-4">
+    <h1 class="page-header">Register</h1>
+    <form>
+      <div class="form-group">
+        <label for="inputFirstName" class="control-label">First Name:</label>
+        <input class="form-control" id="inputFirstName" placeholder="First Name" ng-model="form.firstName">
+      </div>
+      <div class="form-group">
+        <label for="inputLastName" class="control-label">Last Name:</label>
+        <input class="form-control" id="inputLastName" placeholder="Last Name" ng-model="form.lastName">
+      </div>
+      <div class="form-group">
+        <label for="inputUsername" class="control-label">Username:</label>
+        <input class="form-control" id="inputUsername" placeholder="Username" ng-model="form.username">
+      </div>
+      <div class="form-group">
+        <label for="inputPassword" class="control-label">Password:</label>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="form.password">
+      </div>
+      <div class="form-group">
+        <label for="inputVerifyPassword" class="control-label">Verify Password:</label>
+        <input type="password" class="form-control" id="inputVerifyPassword" placeholder="Password Again" ng-model="form.verifyPassword">
+      </div>
+      <div class="form-group">
+        <a class="btn btn-primary btn-block" ng-click="register()">Register</a>
+      </div>
+    </form>
+  </div>
+</div>
