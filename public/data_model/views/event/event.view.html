@@ -1,0 +1,42 @@
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>User</th>
+        <th>Title</th>
+        <th>Image</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Time</th>
+        <th>Tags</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input class="form-control" type="text" ng-model="form._id"></td>
+        <td><input class="form-control" type="text" ng-model="form.user"></td>
+        <td><input class="form-control" type="text" ng-model="form.title"></td>
+        <td><input class="form-control" type="text" ng-model="form.image"></td>
+        <td><input class="form-control" type="text" ng-model="form.description"></td>
+        <td><input class="form-control" type="text" ng-model="form.location"></td>
+        <td><input class="form-control" type="text" ng-model="form.time"></td>
+        <td><input class="form-control" type="text" ng-model="form.tags"></td>
+        <td><i class="glyphicon glyphicon-plus" ng-click="create()"></i></td>
+        <td><i class="glyphicon glyphicon-pencil" ng-click="update()"></i></td>
+      </tr>
+      <tr ng-repeat="event in events track by $index">
+        <td>{{event._id}}</td>
+        <td>{{event.user}}</td>
+        <td>{{event.title}}</td>
+        <td>{{event.image}}</td>
+        <td>{{event.description}}</td>
+        <td>{{event.location}}</td>
+        <td>{{event.time | date:'MM/dd/yyyy @ h:mma'}}</td>
+        <td>{{event.tags}}</td>
+        <td><i class="glyphicon glyphicon-trash" ng-click="delete(user)"></i></td>
+        <td><i class="glyphicon glyphicon-flag" ng-click="select($index)"></i></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

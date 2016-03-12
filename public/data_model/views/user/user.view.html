@@ -1,0 +1,30 @@
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input class="form-control" type="text" ng-model="form.firstName"></td>
+        <td><input class="form-control" type="text" ng-model="form.lastName"></td>
+        <td><input class="form-control" type="text" ng-model="form.username"></td>
+        <td><input class="form-control" type="password" ng-model="form.password"></td>
+        <td><i class="glyphicon glyphicon-plus" ng-click="create()"></i></td>
+        <td><i class="glyphicon glyphicon-pencil" ng-click="update()"></i></td>
+      </tr>
+      <tr ng-repeat="user in users track by $index">
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.password}}</td>
+        <td><i class="glyphicon glyphicon-trash" ng-click="delete(user)"></i></td>
+        <td><i class="glyphicon glyphicon-flag" ng-click="select($index)"></i></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

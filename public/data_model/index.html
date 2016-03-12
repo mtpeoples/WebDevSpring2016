@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="FormBuilderApp">
+<html lang="en" ng-app="DataModelApp">
 <head>
   <meta charset="UTF-8">
 
@@ -10,30 +10,25 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.4/ui-bootstrap-tpls.js"></script>
   <script src="app.js"></script>
   <script src="config.js"></script>
-  <script src="services/user.service.client.js"></script>
-  <script src="services/forms.service.client.js"></script>
   <script src="MainController.js"></script>
-  <script src="views/home/home.controller.js"></script>
-  <script src="views/header/header.controller.js"></script>
+  <script src="views/user/user.controller.js"></script>
+  <script src="views/event/event.controller.js"></script>
   <script src="views/sidebar/sidebar.controller.js"></script>
-  <script src="views/users/register.controller.js"></script>
-  <script src="views/users/login.controller.js"></script>
-  <script src="views/users/profile.controller.js"></script>
-  <script src="views/forms/forms.controller.js"></script>
+  <script src="views/header/header.controller.js"></script>
 
-
-  <title>Form Maker Application</title>
+  <title>Event Tracker Application</title>
 </head>
 
 <body ng-controller="MainController">
-  <div ng-include="'views/header/header.view.html'"></div>
-  <div class="container-fluid">
-    <div class="row">
-      <div ng-include="'views/sidebar/sidebar.view.html'"></div>
-      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view></div>
-    </div>
+<div ng-include="'views/header/header.view.html'"></div>
+<div class="container-fluid">
+  <div class="row">
+    <div ng-include="'views/sidebar/sidebar.view.html'"></div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view></div>
   </div>
+</div>
 </body>
 </html>
