@@ -13,8 +13,7 @@ module.exports = function(db) {
           {"label": "New Hampshire", "value": "NH"},
         ]
         },
-        {"_id": "555", "label": "ZIP", "type": "TEXT", "placeholder": "ZIP"},
-        {"_id": "666", "label": "Email", "type": "EMAIL", "placeholder": "Email"}
+        {"_id": "555", "label": "ZIP", "type": "TEXT", "placeholder": "ZIP"}
       ]
     },
     {
@@ -102,7 +101,7 @@ module.exports = function(db) {
   function getFormFields(formId) {
     for (var i = 0; i < forms.length; i++) {
       if (forms[i]._id == formId) {
-        return forms[i]
+        return forms[i].fields
       }
     }
   }
@@ -125,9 +124,9 @@ module.exports = function(db) {
       if (forms[i]._id == formId) {
         var form = forms[i];
         for (var j = 0; j < form.fields.length; j++) {
-          if (form.fields[j] == fieldId) {
-            form.fields[j].splice(j, 1);
-            return form.fields;
+          if (form.fields[j]._id == fieldId) {
+            form.fields.splice(j, 1);
+            return;
           }
         }
       }

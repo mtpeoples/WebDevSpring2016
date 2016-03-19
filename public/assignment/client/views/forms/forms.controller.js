@@ -3,7 +3,7 @@
       .module("FormBuilderApp")
       .controller("FormController", FormController);
 
-  function FormController($scope, $rootScope, FormService) {
+  function FormController($scope, $rootScope, FormService, $location) {
     $rootScope.state = "forms";
 
     $scope.forms = [];
@@ -53,7 +53,7 @@
     }
 
     $scope.selectForm = function(form) {
-      $scope.form = form;
+      $location.path("/form-fields/" + form._id);
     }
   }
 })();

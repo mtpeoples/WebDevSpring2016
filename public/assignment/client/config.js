@@ -16,8 +16,9 @@
           templateUrl: "views/forms/forms.view.html",
           controller: "FormController"
         })
-        .when("/form-fields" , {
-          templateUrl: "views/forms/forms-fields.view.html"
+        .when("/form-fields/:formId" , {
+          templateUrl: "views/forms/form-fields.view.html",
+          controller: "FormFieldsController"
         })
         .when("/login" , {
           templateUrl: "views/users/login.view.html",

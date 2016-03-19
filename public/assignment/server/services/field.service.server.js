@@ -1,5 +1,7 @@
 module.exports = function(app, model, db) {
 
+  var guid = require('guid');
+
   app.get('/api/assignment/form/:formId/field', function(req, res) {
     var formId = req.params.formId;
     var fields = model.getFormFields(formId);
@@ -16,15 +18,16 @@ module.exports = function(app, model, db) {
   app.delete('/api/assignment/form/:formId/field/:fieldId', function(req, res) {
     var formId = req.params.formId;
     var fieldId = req.params.fieldId;
-    var fields = model.deleteFormFieldById(formId, fieldId);
-    return res.json(fields);
+    model.deleteFormFieldById(formId, fieldId);
+    return res.send(200);
   });
 
   app.post('/api/assignment/form/:formId/field', function(req, res) {
     var formId = req.params.formId;
-    var newForm = req.body;
-    var fields = model.createFormField(formId, newForm);
-    return res.json(fields);
+    var newField = req.body;
+    newField._id = guid.raw();
+    model.createFormField(formId, newField);
+    return res.send(200);
   });
 
   app.put('/api/assignment/form/:formId/field/:fieldId', function(req, res) {
