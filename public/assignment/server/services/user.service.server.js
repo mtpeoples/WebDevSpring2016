@@ -4,8 +4,8 @@ module.exports = function(app, model, db) {
 
   app.post('/api/assignment/user', function(req, res) {
     var newUser = req.body;
-    var updatedUsers = model.create(newUser);
-    res.json(updatedUsers);
+    var updatedUser = model.create(newUser);
+    res.json(updatedUser);
   });
 
   app.get('/api/assignment/user', function(req, res) {
@@ -13,33 +13,28 @@ module.exports = function(app, model, db) {
     var password = req.query.password;
     if (username || password) {
       var user = model.findUserByCredentials(username, password);
-      res.json(user);
+      return res.json(user);
     }
     var users = model.findAll();
-    res.json(users);
+    return res.json(users);
   });
 
   app.get('/api/assignment/user/:id', function(req, res) {
     var id = req.params.id;
     var user = model.findById(id);
-    res.json(user);
-  });
-
-  app.get('/api/assignment/user?username=username', function(req, res) {
-    var users = model.findAll();
-    res.json(users);
+    return res.json(user);
   });
 
   app.put('/api/assignment/user/:id', function(req, res) {
     var id = req.params.id;
     var updatedUser = req.body;
-    var updatedUsers = model.update(id, updatedUser);
-    res.json(updatedUsers);
+    var updatedUser = model.update(id, updatedUser);
+    return res.json(updatedUser);
   });
 
   app.delete('/api/assignment/user/:id', function(req, res) {
     var id = req.params.id;
-    var updatedUsers = model.delete(id);
-    res.json(updatedUsers);
+    model.delete(id);
+    return res.send(200);
   });
 }

@@ -14,10 +14,12 @@
     }
 
     $scope.register = function() {
-      UserService.createUser($scope.form, function(user) {
-        $rootScope.user = user;
-        $location.path("/profile");
-      });
+      UserService
+          .createUser($scope.form)
+          .then(function(response) {
+              $rootScope.user = response.data;
+              $location.path("/profile");
+          });
     }
   }
 })();

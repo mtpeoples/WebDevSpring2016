@@ -15,13 +15,15 @@
     }
 
     $scope.update = function() {
-      UserService.updateUser($rootScope.user._id, $scope.form, function(user) {
-        $rootScope.user = user;
-        $scope.form.firstName = user.firstName;
-        $scope.form.lastName = user.lastName;
-        $scope.form.username = user.username;
-        $scope.form.password = user.password;
-      });
+      UserService
+          .updateUser($rootScope.user._id, $scope.form)
+          .then(function(response) {
+              $rootScope.user = response.data;
+              $scope.form.firstName = $rootScope.user.firstName;
+              $scope.form.lastName = $rootScope.user.lastName;
+              $scope.form.username = $rootScope.user.username;
+              $scope.form.password = $rootScope.user.password;
+          })
     }
   }
 })();

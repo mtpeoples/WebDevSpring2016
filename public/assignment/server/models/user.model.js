@@ -1,4 +1,5 @@
-module.exports = function(app, db) {
+module.exports = function(db) {
+
   var users = [
     {
       "_id": 123, "firstName": "Alice", "lastName": "Wonderland",
@@ -22,7 +23,7 @@ module.exports = function(app, db) {
     }
   ]
 
-  var service = {
+  var api = {
     findUserByCredentials: findUserByCredentials,
     findAll: findAll,
     create: createUser,
@@ -31,7 +32,7 @@ module.exports = function(app, db) {
     findById: findById
   };
 
-  return service;
+  return api;
 
   function findUserByCredentials(username, password) {
     for (var i = 0; i < users.length; i++) {
@@ -48,14 +49,14 @@ module.exports = function(app, db) {
 
   function createUser(user) {
     users.push(user);
-    return users;
+    return user;
   }
 
   function deleteUserById(id) {
     for (var i = 0; i < users.length; i++) {
       if (id == users[i]._id) {
         users.splice(i, i + 1);
-        return users;
+        return;
       }
     }
   }
@@ -64,7 +65,7 @@ module.exports = function(app, db) {
     for (var i = 0; i < users.length; i++) {
       if (id == users[i]._id) {
         users[i] = user;
-        return users;
+        return user;
       }
     }
   }

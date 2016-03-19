@@ -10,12 +10,14 @@
     }
 
     $scope.login = function() {
-      UserService.findUserByCredentials($scope.form.username, $scope.form.password, function(user) {
-        if(user) {
-          $rootScope.user = user;
-          $location.path("/profile");
-        }
-      });
+      UserService
+          .findUserByCredentials($scope.form.username, $scope.form.password)
+          .then(function(response) {
+              if(response.data) {
+                $rootScope.user = response.data;
+                $location.path("/profile");
+              }
+          })
     }
   }
 })();
