@@ -53,7 +53,7 @@
     }
 
     $scope.selectForm = function(form) {
-      $location.path("/form-fields/" + form._id);
+      $location.path("/form-fields/" + form._id + "/fields");
     }
   }
 })();

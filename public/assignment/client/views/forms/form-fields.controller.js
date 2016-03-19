@@ -3,7 +3,7 @@
       .module("FormBuilderApp")
       .controller("FormFieldsController", FormFieldsController);
 
-  function FormFieldsController($scope, FieldService, $routeParams) {
+  function FormFieldsController($scope, FieldService, $routeParams, $uibModal) {
     var formId = $routeParams.formId;
 
     FieldService
@@ -25,6 +25,35 @@
                 });
           });
     }
+
+    $scope.openEditModal = function (field) {
+
+      var modalInstance = $uibModal.open({
+        animation: $scope.animationsEnabled,
+        templateUrl: 'views/forms/modals/editFieldModal.view.html',
+        controller: 'EditFieldModalController',
+        size: 'lg',
+        resolve: {
+          field: function () {
+            return field;
+          }
+        }
+      });
+
+      modalInstance.result.then(function (updatedField) {
+        FieldService
+            .updateField(formId, updatedField._id, updatedField)
+            .then(function() {
+              FieldService
+                  .getFieldsForForm(formId)
+                  .then(function(response) {
+                    $scope.fields = response.data;
+                  });
+            });
+      }, function () {
+        console.log("Modal dismissed")
+      });
+    };
 
     $scope.addField = function() {
       if($scope.fieldType == "TEXT"){

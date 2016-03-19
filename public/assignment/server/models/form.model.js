@@ -147,8 +147,9 @@ module.exports = function(db) {
       if (forms[i]._id == formId) {
         var form = forms[i];
         for (var j = 0; j < form.fields.length; j++) {
-          if (form.fields[j] == fieldId) {
+          if (form.fields[j]._id == fieldId) {
             form.fields[j] = field;
+            return;
           }
         }
       }
