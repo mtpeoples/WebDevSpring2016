@@ -6,9 +6,10 @@
   function HomeController($scope, $rootScope, EventService) {
     $rootScope.state = "home";
 
-    EventService.getEvents(function(events) {
-      $scope.events = events;
-    });
+    EventService.getEvents()
+      .then(function(response) {
+        $scope.events = response.data;
+      });
 
     $scope.search = "";
 

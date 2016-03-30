@@ -1,16 +1,17 @@
 (function() {
   angular
-      .module("EventTrackerApp")
-      .controller("ManageController", ManageController);
+    .module("EventTrackerApp")
+    .controller("ManageController", ManageController);
 
   function ManageController($scope, EventService, $location, $uibModal) {
-    if(!$scope.user) {
+    if (!$scope.user) {
       $location.path('/login');
     }
 
-    EventService.getEventsByUser($scope.user._id, function(events) {
-      $scope.events = events;
-    });
+    EventService.getEventsByUser($scope.user._id)
+      .then(function(response) {
+        $scope.events = response.data;
+      });
 
     $scope.deleteEvent = function(event) {
 
@@ -23,12 +24,14 @@
       });
 
       modalInstance.result.then(function() {
-        EventService.deleteEvent(event._id, function() {
-          EventService.getEventsByUser($scope.user._id, function(events) {
-            $scope.events = events;
+        EventService.deleteEvent(event._id)
+          .then(function(response) {
+            EventService.getEventsByUser($scope.user._id)
+              .then(function(response) {
+                $scope.events = response.data;
+              });
           });
-        });
-      }, function () {
+      }, function() {
         console.log("Didn't delete")
       });
     };
@@ -47,12 +50,14 @@
       });
 
       modalInstance.result.then(function(updatedEvent) {
-        EventService.updateEvent(event._id, updatedEvent, function(event) {
-          EventService.getEventsByUser($scope.user._id, function(events) {
-            $scope.events = events;
+        EventService.updateEvent(event._id, updatedEvent)
+          .then(function(response) {
+            EventService.getEventsByUser($scope.user._id)
+              .then(function(response) {
+                $scope.events = response.data;
+              });
           });
-        });
-      }, function () {
+      }, function() {
         console.log("Cancel edit")
       });
     };
@@ -71,12 +76,14 @@
       });
 
       modalInstance.result.then(function(createdEvent) {
-        EventService.createEvent(createdEvent, function() {
-          EventService.getEventsByUser($scope.user._id, function(events) {
-            $scope.events = events;
+        EventService.createEvent(createdEvent)
+          .then(function(response) {
+            EventService.getEventsByUser($scope.user._id)
+              .then(function(response) {
+                $scope.events = response.data;
+              });
           });
-        });
-      }, function () {
+      }, function() {
         console.log("Cancel create")
       });
     };
