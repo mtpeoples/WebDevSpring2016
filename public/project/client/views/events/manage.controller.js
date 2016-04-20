@@ -3,7 +3,7 @@
     .module("EventTrackerApp")
     .controller("ManageController", ManageController);
 
-  function ManageController($scope, EventService, $location, $uibModal) {
+  function ManageController($scope, EventService, $location, $uibModal, $rootScope) {
     if (!$scope.user) {
       $location.path('/login');
     }
@@ -39,7 +39,7 @@
     $scope.editEvent = function(event) {
       var modalInstance = $uibModal.open({
         animation: false,
-        templateUrl: 'views/modals/editEvent/createEvent.html',
+        templateUrl: 'views/modals/editEvent/editEvent.html',
         controller: 'EditEventController',
         size: "lg",
         resolve: {
@@ -76,6 +76,8 @@
       });
 
       modalInstance.result.then(function(createdEvent) {
+        createdEvent.user = $rootScope.user._id;
+        createdEvent.image = "http://ingridwu.dmmdmcfatter.com/wp-content/uploads/2015/01/placeholder.png";
         EventService.createEvent(createdEvent)
           .then(function(response) {
             EventService.getEventsByUser($scope.user._id)

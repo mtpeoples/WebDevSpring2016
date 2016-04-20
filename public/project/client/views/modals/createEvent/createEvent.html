@@ -5,19 +5,19 @@
   <form>
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" placeholder="title">
+      <input type="text" class="form-control" id="title" placeholder="title" ng-model="form.title">
     </div>
     <div class="form-group">
       <label for="location">Location</label>
-      <input type="text" class="form-control" id="location" placeholder="title">
+      <input type="text" class="form-control" id="location" placeholder="location" ng-model="form.location">
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <input type="text" class="form-control" id="description" placeholder="title">
+      <input type="text" class="form-control" id="description" placeholder="description" ng-model="form.description">
     </div>
     <div class="form-group">
       <label for="time">Time</label>
-      <input type="text" class="form-control" id="time" placeholder="title">
+      <input type="date" class="form-control" id="time" placeholder="date" ng-model="form.date">
     </div>
   </form>
 </div>
