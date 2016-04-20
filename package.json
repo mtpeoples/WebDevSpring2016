@@ -27,7 +27,9 @@
     "express": "~3.4.4",
     "guid": "0.0.12",
     "jslint": "^0.9.6",
-    "multer": "^1.1.0"
+    "mongoose": "^4.4.12",
+    "multer": "^1.1.0",
+    "q": "^1.4.1"
   },
   "devDependencies": {},
   "bundleDependencies": [],

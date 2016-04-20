@@ -1,30 +1,33 @@
-module.exports = function(db) {
+module.exports = function(db, mongoose) {
 
-  var forms = [
-    {
-      "_id": "000", "title": "Contacts", "userId": 123,
-      "fields": [
-        {"_id": "111", "label": "First Name", "type": "TEXT", "placeholder": "First Name"},
-        {"_id": "222", "label": "Last Name", "type": "TEXT", "placeholder": "Last Name"},
-        {"_id": "333", "label": "Address", "type": "TEXT", "placeholder": "Address"},
-        {
-          "_id": "444", "label": "State", "type": "OPTIONS", "options": [
-          {"label": "Massachussetts", "value": "MA"},
-          {"label": "New Hampshire", "value": "NH"},
+  var forms = [{
+    "_id": "000",
+    "title": "Contacts",
+    "userId": 123,
+    "fields": [
+      { "_id": "111", "label": "First Name", "type": "TEXT", "placeholder": "First Name" },
+      { "_id": "222", "label": "Last Name", "type": "TEXT", "placeholder": "Last Name" },
+      { "_id": "333", "label": "Address", "type": "TEXT", "placeholder": "Address" }, {
+        "_id": "444",
+        "label": "State",
+        "type": "OPTIONS",
+        "options": [
+          { "label": "Massachussetts", "value": "MA" },
+          { "label": "New Hampshire", "value": "NH" },
         ]
-        },
-        {"_id": "555", "label": "ZIP", "type": "TEXT", "placeholder": "ZIP"}
-      ]
-    },
-    {
-      "_id": "010", "title": "ToDo", "userId": 234,
-      "fields": [
-        {"_id": "777", "label": "Title", "type": "TEXT", "placeholder": "Title"},
-        {"_id": "888", "label": "Description", "type": "TEXTAREA", "placeholder": "Title"},
-        {"_id": "999", "label": "Due Date", "type": "DATE"},
-      ]
-    }
-  ]
+      },
+      { "_id": "555", "label": "ZIP", "type": "TEXT", "placeholder": "ZIP" }
+    ]
+  }, {
+    "_id": "010",
+    "title": "ToDo",
+    "userId": 234,
+    "fields": [
+      { "_id": "777", "label": "Title", "type": "TEXT", "placeholder": "Title" },
+      { "_id": "888", "label": "Description", "type": "TEXTAREA", "placeholder": "Title" },
+      { "_id": "999", "label": "Due Date", "type": "DATE" },
+    ]
+  }]
 
   var service = {
     create: createFormForUser,

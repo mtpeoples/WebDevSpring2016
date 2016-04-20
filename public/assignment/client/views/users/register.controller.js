@@ -1,7 +1,7 @@
 (function() {
   angular
-      .module("FormBuilderApp")
-      .controller("RegisterController", RegisterController);
+    .module("FormBuilderApp")
+    .controller("RegisterController", RegisterController);
 
   function RegisterController($scope, $rootScope, UserService, $location) {
     $scope.form = {
@@ -15,11 +15,11 @@
 
     $scope.register = function() {
       UserService
-          .createUser($scope.form)
-          .then(function(response) {
-              $rootScope.user = response.data;
-              $location.path("/profile");
-          });
+        .createUser($scope.form)
+        .then(function(response) {
+          $rootScope.user = response.data;
+          $location.path("/profile");
+        });
     }
   }
 })();
