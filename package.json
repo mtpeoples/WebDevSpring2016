@@ -25,7 +25,8 @@
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "~3.4.4",
-    "jslint": "^0.9.6"
+    "jslint": "^0.9.6",
+    "multer": "^1.1.0"
   },
   "devDependencies": {},
   "bundleDependencies": [],
