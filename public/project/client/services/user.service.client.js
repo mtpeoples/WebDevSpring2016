@@ -24,7 +24,6 @@
     };
 
     function createUser(user) {
-      user._id = (new Date).getTime();
       return $http.post("/api/project/user", user);
     };
 

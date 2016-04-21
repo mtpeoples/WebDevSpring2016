@@ -10,7 +10,6 @@
       username: "",
       password: "",
       verifyPassword: "",
-      roles: []
     }
 
     $scope.register = function() {
